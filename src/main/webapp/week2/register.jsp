@@ -5,9 +5,12 @@
   Time: 19:58
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+
 <head>
+    <title>
+        Registration
+    </title>
     <style type="text/css">
         body {background-color:lightgoldenrodyellow}
     </style>
@@ -22,15 +25,21 @@
 <form style="text-align: center" method="post">
     <h1>New User Registration!</h1>
     <label for="UserName">UserName</label><br/>
-    <input type="text" name="Username" id="UserName" placeholder="Please input username"required autofocus><br/>
+    <input type="text" name="Username" id="UserName" placeholder="Please input username" required autofocus><br/>
     <label for="Password">PassWord</label><br/>
-    <input type="Password" name="Password" id="Password" placeholder="Please input Password"required autofocus minlength="8"><br/>
+    <input type="Password" name="Password" id="Password" placeholder="Please input Password" required autofocus minlength="8"><br/>
     <label for="Email">Email</label><br/>
-    <input type="text" name="Email" id="Email" placeholder="Please input Email"required autofocus><br/>
-    Gender<input type="radio" name="sex" value="Male" checked/>Mate
-    <input type="radio" name="sex" value="Famale" checked/>Famale<br>
+    <input type="text" name="Email" id="Email" placeholder="Please input Email" required autofocus><br/>
+    <label>
+        Gender
+        <input type="radio" name="sex" value="Male" checked/>
+    </label>Mate
+    <label>
+        Mate
+        <input type="radio" name="sex" value="Female" checked/>
+    </label>Female<br>
     <label for="BirthDate">BirthDate</label><br/>
-    <input type="BirthDate" name="BirthDate" id="BirthDate" placeholder="Day of Birth (yyyy-mm-dd)"><br/>
+    <input id="BirthDate" name="BirthDate" placeholder="Day of Birth (yyyy-mm-dd)" type="text"><br/>
     <input type="submit" value="Register"/><br>
 
 </form>
