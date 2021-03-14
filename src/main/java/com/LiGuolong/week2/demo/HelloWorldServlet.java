@@ -25,7 +25,7 @@ public class HelloWorldServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
         out.println("Name :LiGuolong");
-        out.println("ID :2019211001000918");
+        out.println("<br>ID :2019211001000918</br>");
         out.println(df.format(day));
         out.println("</body></html>");
         //下面我们需要向tomcat说明这个servlet --web.xml

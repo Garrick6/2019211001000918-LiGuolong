@@ -3,4 +3,12 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <servlet>
+        <servlet-name>anyName</servlet-name><!--给服务器取名-->
+        <servlet-class>com.LiGuolong.week2.demo.HelloWorldServlet</servlet-class><!--打包服务器-->
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>anyName</servlet-name>
+        <url-pattern>/hello</url-pattern><!-- 设置网址-->
+    </servlet-mapping>
 </web-app>
