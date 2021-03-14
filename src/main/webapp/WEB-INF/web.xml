@@ -9,6 +9,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>anyName</servlet-name>
-        <url-pattern>hello</url-pattern><!-- 网址格式-->
+        <url-pattern>/hello</url-pattern><!-- 设置网址-->
     </servlet-mapping>
 </web-app>
