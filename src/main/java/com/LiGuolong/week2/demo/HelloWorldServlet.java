@@ -11,23 +11,20 @@ import java.util.Date;
 
 @WebServlet(name = "helloServlet",value = "/hello-servlet")
 public class HelloWorldServlet extends HttpServlet {
-    private String message;
-    Date day=new Date();
-    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    public void init() {message = "Hello World!";}
+
+    Date data=new Date();
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
-        response.setContentType("text/html");
         ////当客户端请求方法在doGet()中为GET-here时，我们想向客户端发送HelLo
         // 我们需要在响应中写入Hello
         // get writer - java .io
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
-        out.println("Name :LiGuolong");
-        out.println("<br>ID :2019211001000918</br>");
-        out.println(df.format(day));
-        out.println("</body></html>");
+        out.println("Name :LiGuolong</br>");
+        out.println("ID :2019211001000918</br>");
+        out.println("Date and Time"+data.toString());
+
         //下面我们需要向tomcat说明这个servlet --web.xml
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response){

@@ -11,6 +11,8 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="2019211001000918-LiGuolong" target="1.8" />
+      <module name="wee2" target="1.8" />
+      <module name="week2" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
