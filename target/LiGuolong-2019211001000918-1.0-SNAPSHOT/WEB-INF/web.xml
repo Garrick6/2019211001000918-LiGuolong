@@ -7,8 +7,26 @@
         <servlet-name>anyName</servlet-name><!--给服务器取名-->
         <servlet-class>com.LiGuolong.week2.demo.HelloWorldServlet</servlet-class><!--打包服务器-->
     </servlet>
+    <servlet>
+        <servlet-name>LifeCycleServlet</servlet-name>
+        <servlet-class>com.LiGuolong.week3.demo.LifeCycleServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>com.LiGuolong.week3.demo.RegisterServlet</servlet-class>
+    </servlet>
+
+
     <servlet-mapping>
         <servlet-name>anyName</servlet-name>
         <url-pattern>/hello</url-pattern><!-- 设置网址-->
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LifeCycleServlet</servlet-name>
+        <url-pattern>/Life</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/register</url-pattern>
     </servlet-mapping>
 </web-app>

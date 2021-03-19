@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @WebServlet(name = "helloServlet",value = "/hello-servlet")
@@ -28,9 +27,6 @@ public class HelloWorldServlet extends HttpServlet {
         //下面我们需要向tomcat说明这个servlet --web.xml
     }
     public void doPost(HttpServletRequest request, HttpServletResponse response){
-
-    }
-    public void destory(){
 
     }
 }
