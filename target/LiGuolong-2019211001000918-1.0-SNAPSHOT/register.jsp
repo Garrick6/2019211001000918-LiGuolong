@@ -23,12 +23,14 @@
 </head>
 <body>
 <form style="text-align: center" method="post" action="http://localhost:8080/2019211001000918_LiGuolong_war_exploded/register">
-    username<input type="text" name="username"/><br/>
-    password<input type="password" name="password"/><br/>
-    Email<input type="text" name="email"/><br/>
-    Gender: <input type="radio" name="gender" value="male">Male <input type="radio" name="gender" value="female">Female<br/>
-    Date of Birth: <input type="text name=" name="birthDate"><br/>
-    <input type="submit" value="Register"/>
+    username<label><input type="text" name="username"/></label><br/>
+    password<label><input type="password" name="password"/></label><br/>
+    Email<label><input type="text" name="email"/></label><br/>
+    Gender: <label><input type="radio" name="gender" value="male"></label>
+    Male <label><input type="radio" name="gender" value="female"></label>Female<br/>
+    Date of Birth:<label><input type="text" name="birthDate">
+
+</label><br/><input type="submit" value="Register"/>
 
 </form>
 </body>
