@@ -2,8 +2,6 @@ package com.LiGuolong.week4.demo;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebInitParam;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -51,8 +49,6 @@ public class JDBCDemoServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // duGet中连接-多次连接-错误示范
-        System.out.println("我在doGet");//成功
         //我们需要在doGet中进行连接
         String sql="select * from userdb.dbo.usertable";
         try {
