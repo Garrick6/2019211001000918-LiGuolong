@@ -15,8 +15,55 @@
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>com.LiGuolong.week3.demo.RegisterServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>JDBCDemoServlet</servlet-name>
+        <servlet-class>com.LiGuolong.week4.demo.JDBCDemoServlet</servlet-class>
+<!--        String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";-->
+<!--        String url="jdbc:sqlserver://localhost;databaseName=userdb";-->
+<!--        String username="sa";-->
+<!--        String password="605880327";-->
+<!--        在web.xml中设置为配置参数—仅用于一个servlet——JDBCDemoServlet:-->
+        <init-param>
+            <param-name>driver</param-name>
+            <param-value>com.LiGuolong.week4.demo.JDBCDemoServlet</param-value>
+        </init-param>
+        <init-param>
+            <param-name>url</param-name>
+            <param-value>jdbc:sqlserver://localhost;databaseName=userdb</param-value>
+        </init-param>
+        <init-param>
+            <param-name>username</param-name>
+            <param-value>sa</param-value>
+        </init-param>
+        <init-param>
+            <param-name>password</param-name>
+            <param-value>605880327</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+        <!--在tomcat启动时加载并调用init()-->
+    </servlet>
+    <servlet>
+        <servlet-name>ConfigDemoServlet</servlet-name>
+        <servlet-class>com.LiGuolong.week4.demo.ConfigDemoServlet</servlet-class>
+        <init-param>
+            <param-name>name</param-name>
+            <param-value>LiGuolong</param-value>
+        </init-param>
+        <init-param>
+            <param-name>studentId</param-name>
+            <param-value>2019211001000918</param-value>
+        </init-param>
+    </servlet>
 
+    <servlet-mapping>
+        <servlet-name>ConfigDemoServlet</servlet-name>
+        <url-pattern>/config</url-pattern>
+    </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>JDBCDemoServlet</servlet-name>
+        <url-pattern>/jdbc</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>anyName</servlet-name>
         <url-pattern>/hello</url-pattern><!-- 设置网址-->
