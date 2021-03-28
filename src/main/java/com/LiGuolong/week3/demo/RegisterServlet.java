@@ -40,10 +40,6 @@ public class RegisterServlet extends HttpServlet {
         url = context.getInitParameter("url");
         username = context.getInitParameter("username");
         password = context.getInitParameter("password");
-        System.out.println("R:"+driver);
-        System.out.println("R:"+url);
-        System.out.println("R:"+username);
-        System.out.println("R:"+password);
 
 
         try{
@@ -70,14 +66,18 @@ public class RegisterServlet extends HttpServlet {
         String Email = request.getParameter("email");
         String Gender = request.getParameter("gender");
         String BirthDate = request.getParameter("birthDate");
-
-        System.out.println("Username:"+Username);
-        System.out.println("Password:"+Password);
-        System.out.println("Email:"+Email);
-        System.out.println("Gender:"+Gender);
-        System.out.println("BirthDate:"+BirthDate);
-
         PrintWriter writer = response.getWriter();
+        writer.println( "<table border=\"1\">"       +
+                "<tr>"                   +
+                "<td>id</td>"        +
+                "<td>UserName</td>"  +
+                "<td>Password</td>"  +
+                "<td>Email</td>"     +
+                "<td>Gender</td>"    +
+                "<td>BirthDate</td>" +
+                "</tr>"    +
+                "<tr>"     );
+
         try {
             Statement createDbStatement = con.createStatement();
             String insertDb = "insert into userdb.dbo.usertable(Username,Password,Email,Gender,BirthDate) values('"+Username+"','"+Password+"','"+Email+"','"+Gender+"','"+BirthDate+"')";
@@ -91,31 +91,20 @@ public class RegisterServlet extends HttpServlet {
                 Email = rs.getString("Email");
                 Gender = rs.getString("Gender");
                 BirthDate = rs.getString("BirthDate");
+                writer.println(
+                                "<td>" + id       + "</td>" +
+                                "<td>" + Username + "</td>" +
+                                "<td>" + Password  + "</td>" +
+                                "<td>" + Email     + "</td>" +
+                                "<td>" + Gender    + "</td>" +
+                                "<td>" + BirthDate + "</td>"+ "</tr>"
+                                );
             }
         } catch (Exception e) {
             System.out.println(e);
         }
+        writer.println("</table>");
 
-
-        writer.println(
-                "<table border=\"1\">"       +
-                        "<tr>"                   +
-                        "<td>id</td>"        +
-                        "<td>UserName</td>"  +
-                        "<td>Password</td>"  +
-                        "<td>Email</td>"     +
-                        "<td>Gender</td>"    +
-                        "<td>BirthDate</td>" +
-                        "</tr>"    +
-                        "<tr>"     +
-                        "<td>" + id       + "</td>" +
-                        "<td>" + Username + "</td>" +
-                        "<td>" + Password  + "</td>" +
-                        "<td>" + Email     + "</td>" +
-                        "<td>" + Gender    + "</td>" +
-                        "<td>" + BirthDate + "</td>" +
-                        "</tr>"    +
-                        "</table>");
     }
 
     @Override
