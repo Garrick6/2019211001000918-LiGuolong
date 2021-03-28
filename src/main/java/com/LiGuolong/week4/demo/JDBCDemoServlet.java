@@ -1,6 +1,6 @@
 package com.LiGuolong.week4.demo;
 
-import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,6 +23,11 @@ import java.sql.SQLException;
 //)
 public class JDBCDemoServlet extends HttpServlet {
     Connection con=null;//类变量
+    String driver;
+    String url;
+    String username;
+    String password;
+
     @Override
     public void init() throws ServletException {
 //        String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";
@@ -31,11 +36,16 @@ public class JDBCDemoServlet extends HttpServlet {
 //        String password="605880327";
         //像这样的代码是糟糕的-->因为改变并不容易
         //例如:修改了数据库的密码-->你就还得修改java代码
-        ServletConfig config=getServletConfig();
-        String driver=config.getInitParameter("driver");
-        String url=config.getInitParameter("url");
-        String username=config.getInitParameter("username");
-        String password=config.getInitParameter("password");
+        ServletContext context=this.getServletContext();
+        driver = context.getInitParameter("driver");
+        url = context.getInitParameter("url");
+        username = context.getInitParameter("username");
+        password = context.getInitParameter("password");
+        System.out.println("J:"+driver);
+        System.out.println("J:"+url);
+        System.out.println("J:"+username);
+        System.out.println("J:"+password);
+
 
         try {
             Class.forName(driver);

@@ -4,9 +4,10 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+
     <context-param>
         <param-name>driver</param-name>
-        <param-value>com.LiGuolong.week4.demo.JDBCDemoServlet</param-value>
+        <param-value>com.microsoft.sqlserver.jdbc.SQLServerDriver</param-value>
     </context-param>
     <context-param>
         <param-name>url</param-name>
@@ -20,6 +21,7 @@
         <param-name>password</param-name>
         <param-value>605880327</param-value>
     </context-param>
+
 
 
 
@@ -43,15 +45,6 @@
     </servlet-mapping>
 
 
-    <servlet>
-        <servlet-name>RegisterServlet</servlet-name>
-        <servlet-class>com.LiGuolong.week3.demo.RegisterServlet</servlet-class>
-        <load-on-startup>2</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>RegisterServlet</servlet-name>
-        <url-pattern>/register</url-pattern>
-    </servlet-mapping>
 
 
 
@@ -81,6 +74,7 @@
 <!--        </init-param>-->
         <load-on-startup>1</load-on-startup>
         <!--在tomcat启动时进行类加载-->
+
     </servlet>
     <servlet-mapping>
         <servlet-name>JDBCDemoServlet</servlet-name>
@@ -104,8 +98,6 @@
 <!--        <servlet-name>ConfigDemoServlet</servlet-name>-->
 <!--        <url-pattern>/config</url-pattern>-->
 <!--    </servlet-mapping>-->
-
-
 
 
 

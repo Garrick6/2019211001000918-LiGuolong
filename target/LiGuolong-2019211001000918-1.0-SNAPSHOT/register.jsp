@@ -28,9 +28,8 @@
     Email<label><input type="text" name="email"/></label><br/>
     Gender: <label><input type="radio" name="gender" value="male"></label>
     Male <label><input type="radio" name="gender" value="female"></label>Female<br/>
-    Date of Birth:<label><input type="text" name="birthDate">
-
-</label><br/><input type="submit" value="Register"/>
+    Date of Birth:<label><input type="text" name="birthDate"></label><br/>
+    <input type="submit" value="Register"/>
 
 </form>
 </body>

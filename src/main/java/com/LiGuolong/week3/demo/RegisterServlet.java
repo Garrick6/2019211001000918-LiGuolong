@@ -1,7 +1,8 @@
 package com.LiGuolong.week3.demo;
 
-import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,22 +21,35 @@ import java.sql.*;
 //        8打印所有行-使用html <table><tr><td>
 
 @WebServlet(
-        urlPatterns = {"/register"}
+        urlPatterns = {"/register"},
+        loadOnStartup = 3
 )
 
 public class RegisterServlet extends HttpServlet {
 
-    public Connection con;
+    Connection con=null;
+    String driver;
+    String url;
+    String username;
+    String password;
+
 
     public void init() throws ServletException{
-        String driver = getServletContext().getInitParameter("driver");
-        String url = getServletContext().getInitParameter("url");
-        String username = getServletContext().getInitParameter("username");
-        String password = getServletContext().getInitParameter("password");
+        ServletContext context=this.getServletContext();
+        driver = context.getInitParameter("driver");
+        url = context.getInitParameter("url");
+        username = context.getInitParameter("username");
+        password = context.getInitParameter("password");
+        System.out.println("R:"+driver);
+        System.out.println("R:"+url);
+        System.out.println("R:"+username);
+        System.out.println("R:"+password);
+
 
         try{
             Class.forName(driver);
             con = DriverManager.getConnection(url, username, password);
+            System.out.println("我在init()-->"+con);//成功
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
@@ -50,33 +64,38 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String id = request.getParameter("id");
-        String Username = request.getParameter("Username");
-        String Password = request.getParameter("Password");
-        String Email = request.getParameter("Email");
-        String Gender = request.getParameter("Gender");
-        String BirthDate = request.getParameter("BirthDate");
+        String id = null;
+        String Username = request.getParameter("username");
+        String Password = request.getParameter("password");
+        String Email = request.getParameter("email");
+        String Gender = request.getParameter("gender");
+        String BirthDate = request.getParameter("birthDate");
+
+        System.out.println("Username:"+Username);
+        System.out.println("Password:"+Password);
+        System.out.println("Email:"+Email);
+        System.out.println("Gender:"+Gender);
+        System.out.println("BirthDate:"+BirthDate);
 
         PrintWriter writer = response.getWriter();
         try {
-
-            System.out.println("con:"+con);
             Statement createDbStatement = con.createStatement();
             String insertDb = "insert into userdb.dbo.usertable(Username,Password,Email,Gender,BirthDate) values('"+Username+"','"+Password+"','"+Email+"','"+Gender+"','"+BirthDate+"')";
             createDbStatement.executeUpdate(insertDb);
             String selectDb = "select * from userdb.dbo.usertable";
             ResultSet rs = createDbStatement.executeQuery(selectDb);
             while(rs.next()) {
-                rs.getString("id");
-                rs.getString("UserName");
-                rs.getString("Password");
-                rs.getString("Email");
-                rs.getString("Gender");
-                rs.getString("BirthDate");
+                id =rs.getString("id");
+                Username = rs.getString("UserName");
+                Password = rs.getString("Password");
+                Email = rs.getString("Email");
+                Gender = rs.getString("Gender");
+                BirthDate = rs.getString("BirthDate");
             }
         } catch (Exception e) {
             System.out.println(e);
         }
+
 
         writer.println(
                 "<table border=\"1\">"       +
@@ -89,12 +108,23 @@ public class RegisterServlet extends HttpServlet {
                         "<td>BirthDate</td>" +
                         "</tr>"    +
                         "<tr>"     +
-                        "<td>" + id        + "</td>" +
-                        "<td>" + Username  + "</td>" +
+                        "<td>" + id       + "</td>" +
+                        "<td>" + Username + "</td>" +
                         "<td>" + Password  + "</td>" +
                         "<td>" + Email     + "</td>" +
                         "<td>" + Gender    + "</td>" +
                         "<td>" + BirthDate + "</td>" +
                         "</tr>"    +
                         "</table>");
-    }}
+    }
+
+    @Override
+    public void destroy() {
+        super.destroy();
+        try {
+            con.close();//当tomcat停止时释放内存
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+}
