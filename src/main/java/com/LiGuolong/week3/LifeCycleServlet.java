@@ -1,4 +1,4 @@
-package com.LiGuolong.week3.demo;
+package com.LiGuolong.week3;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

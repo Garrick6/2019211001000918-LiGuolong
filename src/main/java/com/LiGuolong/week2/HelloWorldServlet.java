@@ -1,4 +1,4 @@
-package com.LiGuolong.week2.demo;
+package com.LiGuolong.week2;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

@@ -27,7 +27,7 @@
 
     <servlet>
         <servlet-name>anyName</servlet-name><!--给服务器取名-->
-        <servlet-class>com.LiGuolong.week2.demo.HelloWorldServlet</servlet-class><!--打包服务器-->
+        <servlet-class>com.LiGuolong.week2.HelloWorldServlet</servlet-class><!--打包服务器-->
     </servlet>
     <servlet-mapping>
         <servlet-name>anyName</servlet-name>
@@ -37,11 +37,11 @@
 
     <servlet>
         <servlet-name>LifeCycleServlet</servlet-name>
-        <servlet-class>com.LiGuolong.week3.demo.LifeCycleServlet</servlet-class>
+        <servlet-class>com.LiGuolong.week3.LifeCycleServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LifeCycleServlet</servlet-name>
-        <url-pattern>/Life</url-pattern>
+        <url-pattern>/life</url-pattern>
     </servlet-mapping>
 
 
@@ -50,7 +50,7 @@
 
     <servlet>
         <servlet-name>JDBCDemoServlet</servlet-name>
-        <servlet-class>com.LiGuolong.week4.demo.JDBCDemoServlet</servlet-class>
+        <servlet-class>com.LiGuolong.week4.JDBCDemoServlet</servlet-class>
 <!--        String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";-->
 <!--        String url="jdbc:sqlserver://localhost;databaseName=userdb";-->
 <!--        String username="sa";-->
@@ -58,7 +58,7 @@
 <!--        在web.xml中设置为配置参数—仅用于一个servlet——JDBCDemoServlet:-->
 <!--        <init-param>-->
 <!--            <param-name>driver</param-name>-->
-<!--            <param-value>com.LiGuolong.week4.demo.JDBCDemoServlet</param-value>-->
+<!--            <param-value>JDBCDemoServlet</param-value>-->
 <!--        </init-param>-->
 <!--        <init-param>-->
 <!--            <param-name>url</param-name>-->
@@ -83,7 +83,7 @@
 
 <!--    <servlet>-->
 <!--        <servlet-name>ConfigDemoServlet</servlet-name>-->
-<!--        <servlet-class>com.LiGuolong.week4.demo.ConfigDemoServlet</servlet-class>-->
+<!--        <servlet-class>ConfigDemoServlet</servlet-class>-->
 <!--        <init-param>-->
 <!--            <param-name>name</param-name>-->
 <!--            <param-value>LiGuolong</param-value>-->

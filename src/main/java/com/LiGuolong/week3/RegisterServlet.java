@@ -1,4 +1,4 @@
-package com.LiGuolong.week3.demo;
+package com.LiGuolong.week3;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -60,7 +60,7 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String id = null;
+        String id;
         String Username = request.getParameter("username");
         String Password = request.getParameter("password");
         String Email = request.getParameter("email");
@@ -69,12 +69,12 @@ public class RegisterServlet extends HttpServlet {
         PrintWriter writer = response.getWriter();
         writer.println( "<table border=\"1\">"       +
                 "<tr>"                   +
-                "<td>id</td>"        +
-                "<td>UserName</td>"  +
-                "<td>Password</td>"  +
-                "<td>Email</td>"     +
-                "<td>Gender</td>"    +
-                "<td>BirthDate</td>" +
+                "<th>id</th>"        +
+                "<th>UserName</th>"  +
+                "<th>Password</th>"  +
+                "<th>Email</th>"     +
+                "<th>Gender</th>"    +
+                "<th>BirthDate</th>" +
                 "</tr>"    +
                 "<tr>"     );
 

@@ -5,24 +5,10 @@
   Time: 19:58
   To change this template use File | Settings | File Templates.
 --%>
-<html>
-
-<head>
-    <title>
-        Registration
-    </title>
-    <style type="text/css">
-        body {background-color:lightgoldenrodyellow}
-    </style>
-    <script>
-    function myFunction()
-    {
-        document.getElementById("demo").innerHTML="我的第一个 JavaScript 函数";
-    }
-</script>
-</head>
-<body>
-<form style="text-align: center" method="post" action="http://localhost:8080/2019211001000918_LiGuolong_war_exploded/register">
+<%@include file="header.jsp"%>
+This is my register JSP page <br>
+<form style="text-align: center" method="post" action="login.jsp">
+    <h2>Register</h2>
     username<label><input type="text" name="username"/></label><br/>
     password<label><input type="password" name="password"/></label><br/>
     Email<label><input type="text" name="email"/></label><br/>
@@ -32,6 +18,4 @@
     <input type="submit" value="Register"/>
 
 </form>
-</body>
-
-</html>
+<%@include file="footer.jsp"%>

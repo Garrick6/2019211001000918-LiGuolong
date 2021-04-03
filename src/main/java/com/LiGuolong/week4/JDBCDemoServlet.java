@@ -1,4 +1,4 @@
-package com.LiGuolong.week4.demo;
+package com.LiGuolong.week4;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
