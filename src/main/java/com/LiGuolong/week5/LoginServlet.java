@@ -63,6 +63,14 @@ public class LoginServlet extends HttpServlet {
         }
 
     }
-
-
+    @Override
+    public void destroy() {
+        super.destroy();
+        try {
+            con.close();//当tomcat停止时释放内存
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
 }
+
