@@ -1,15 +1,15 @@
 package com.LiGuolong.week3;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 //        1. Comment <servlet> and <servlet-mapping> in web.xml
 //        2.使用@WebServlet用于RegisterServlet(第3周)
@@ -28,82 +28,44 @@ import java.sql.*;
 public class RegisterServlet extends HttpServlet {
 
     Connection con=null;
-    String driver;
-    String url;
-    String username;
-    String password;
 
 
     public void init() throws ServletException{
-        ServletContext context=this.getServletContext();
-        driver = context.getInitParameter("driver");
-        url = context.getInitParameter("url");
-        username = context.getInitParameter("username");
-        password = context.getInitParameter("password");
-
-
-        try{
-            Class.forName(driver);
-            con = DriverManager.getConnection(url, username, password);
-            System.out.println("我在init()-->"+con);//成功
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
-
+        con = (Connection) getServletContext().getAttribute("con");
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doPost(request, response);
 
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String id;
         String Username = request.getParameter("username");
         String Password = request.getParameter("password");
         String Email = request.getParameter("email");
         String Gender = request.getParameter("gender");
         String BirthDate = request.getParameter("birthDate");
-        PrintWriter writer = response.getWriter();
-        writer.println( "<table border=\"1\">"       +
-                "<tr>"                   +
-                "<th>id</th>"        +
-                "<th>UserName</th>"  +
-                "<th>Password</th>"  +
-                "<th>Email</th>"     +
-                "<th>Gender</th>"    +
-                "<th>BirthDate</th>" +
-                "</tr>"    +
-                "<tr>"     );
 
         try {
             Statement createDbStatement = con.createStatement();
-            String insertDb = "insert into userdb.dbo.usertable(Username,Password,Email,Gender,BirthDate) values('"+Username+"','"+Password+"','"+Email+"','"+Gender+"','"+BirthDate+"')";
+            String insertDb = "insert into userdb.dbo.usertable(username,password,email,gender,birthDate) " +
+                    "values('"+Username+"','"+Password+"','"+Email+"','"+Gender+"','"+BirthDate+"')";
             createDbStatement.executeUpdate(insertDb);
             String selectDb = "select * from userdb.dbo.usertable";
             ResultSet rs = createDbStatement.executeQuery(selectDb);
-            while(rs.next()) {
-                id =rs.getString("id");
-                Username = rs.getString("UserName");
-                Password = rs.getString("Password");
-                Email = rs.getString("Email");
-                Gender = rs.getString("Gender");
-                BirthDate = rs.getString("BirthDate");
-                writer.println(
-                                "<td>" + id       + "</td>" +
-                                "<td>" + Username + "</td>" +
-                                "<td>" + Password  + "</td>" +
-                                "<td>" + Email     + "</td>" +
-                                "<td>" + Gender    + "</td>" +
-                                "<td>" + BirthDate + "</td>"+ "</tr>"
-                                );
-            }
+
+            //使用请求属性
+            //设置rs为请求属性
+//            request.setAttribute("rsName",rs);//name -字符串，value -任何类型(对象)
+//            request.getRequestDispatcher("userList.jsp").forward(request,response);//此时，请求已经给了userList
+//            System.out.println("我在RegisterServlet——>doPost()——>再forward()");
+            response.sendRedirect("login.jsp");//跳转登录界面.
         } catch (Exception e) {
             System.out.println(e);
         }
-        writer.println("</table>");
 
     }
 

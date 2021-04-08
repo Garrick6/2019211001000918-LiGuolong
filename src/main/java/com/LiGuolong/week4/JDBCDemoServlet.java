@@ -41,16 +41,11 @@ public class JDBCDemoServlet extends HttpServlet {
         url = context.getInitParameter("url");
         username = context.getInitParameter("username");
         password = context.getInitParameter("password");
-        System.out.println("J:"+driver);
-        System.out.println("J:"+url);
-        System.out.println("J:"+username);
-        System.out.println("J:"+password);
-
 
         try {
             Class.forName(driver);
             con=DriverManager.getConnection(url,username,password);
-            System.out.println("我在init()-->"+con);//成功
+            System.out.println("连接数据库成功"+con);//成功
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }

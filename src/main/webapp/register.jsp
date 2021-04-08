@@ -7,7 +7,7 @@
 --%>
 <%@include file="header.jsp"%>
 This is my register JSP page <br>
-<form style="text-align: center" method="post" action="login.jsp">
+<form style="text-align: center" method="post" action="http://localhost:8080/2019211001000918_LiGuolong_war_exploded/register">
     <h2>Register</h2>
     username<label><input type="text" name="username"/></label><br/>
     password<label><input type="password" name="password"/></label><br/>
