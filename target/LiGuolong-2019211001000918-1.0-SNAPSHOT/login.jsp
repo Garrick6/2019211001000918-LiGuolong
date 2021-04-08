@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="header.jsp"%>
-<form style="text-align: center" method="post" action="http://localhost:8080/2019211001000918_LiGuolong_war_exploded/log">
+<form style="text-align: center" method="post" action="log">
     <h2>Login</h2>
     <%
         if ((request.getAttribute("message")!=null)){
