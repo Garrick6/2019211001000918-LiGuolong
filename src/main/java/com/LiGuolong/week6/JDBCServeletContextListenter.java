@@ -25,7 +25,6 @@ public class JDBCServeletContextListenter implements ServletContextListener {
         try{
             Class.forName(driver);
             Connection con = DriverManager.getConnection(url, username, password);
-            System.out.println("我在contextInitialized()中");
             System.out.println("连接数据库成功"+con);//成功
             context.setAttribute("con",con);
 

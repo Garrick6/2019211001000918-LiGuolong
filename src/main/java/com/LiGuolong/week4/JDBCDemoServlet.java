@@ -1,15 +1,14 @@
 package com.LiGuolong.week4;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 ///使用@webservlet 代替web.xml中的代码
 //@WebServlet(
@@ -22,11 +21,9 @@ import java.sql.SQLException;
 //        },loadOnStartup = 1
 //)
 public class JDBCDemoServlet extends HttpServlet {
-    Connection con=null;//类变量
-    String driver;
-    String url;
-    String username;
-    String password;
+    Connection con = null;//类变量
+    Statement stmt = null;
+
 
     @Override
     public void init() throws ServletException {
@@ -36,19 +33,7 @@ public class JDBCDemoServlet extends HttpServlet {
 //        String password="605880327";
         //像这样的代码是糟糕的-->因为改变并不容易
         //例如:修改了数据库的密码-->你就还得修改java代码
-        ServletContext context=this.getServletContext();
-        driver = context.getInitParameter("driver");
-        url = context.getInitParameter("url");
-        username = context.getInitParameter("username");
-        password = context.getInitParameter("password");
-
-        try {
-            Class.forName(driver);
-            con=DriverManager.getConnection(url,username,password);
-            System.out.println("连接数据库成功"+con);//成功
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
+        con = (Connection) getServletContext().getAttribute("con");
 
     }
 
@@ -57,7 +42,8 @@ public class JDBCDemoServlet extends HttpServlet {
         //我们需要在doGet中进行连接
         String sql="select * from userdb.dbo.usertable";
         try {
-            ResultSet rs = con.createStatement().executeQuery(sql);
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()){
                 //获取结果并打印
             }

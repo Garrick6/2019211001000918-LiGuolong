@@ -6,10 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 //        1. Comment <servlet> and <servlet-mapping> in web.xml
 //        2.使用@WebServlet用于RegisterServlet(第3周)
@@ -28,7 +25,7 @@ import java.sql.Statement;
 public class RegisterServlet extends HttpServlet {
 
     Connection con=null;
-
+    PreparedStatement pstmt = null;
 
     public void init() throws ServletException{
         con = (Connection) getServletContext().getAttribute("con");
@@ -50,12 +47,16 @@ public class RegisterServlet extends HttpServlet {
         String BirthDate = request.getParameter("birthDate");
 
         try {
-            Statement createDbStatement = con.createStatement();
             String insertDb = "insert into userdb.dbo.usertable(username,password,email,gender,birthDate) " +
-                    "values('"+Username+"','"+Password+"','"+Email+"','"+Gender+"','"+BirthDate+"')";
-            createDbStatement.executeUpdate(insertDb);
-            String selectDb = "select * from userdb.dbo.usertable";
-            ResultSet rs = createDbStatement.executeQuery(selectDb);
+                    "values(?,?,?,?,?)";
+            pstmt = con.prepareStatement(insertDb);
+            pstmt.setString(1,Username);
+            pstmt.setString(2,Password);
+            pstmt.setString(3,Email);
+            pstmt.setString(4,Gender);
+            pstmt.setString(5,BirthDate);
+            pstmt.executeUpdate();
+
 
             //使用请求属性
             //设置rs为请求属性
