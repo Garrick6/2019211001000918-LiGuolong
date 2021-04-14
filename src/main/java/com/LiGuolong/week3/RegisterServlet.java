@@ -1,12 +1,18 @@
 package com.LiGuolong.week3;
 
+import com.LiGuolong.dao.UserDao;
+import com.LiGuolong.model.User;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 //        1. Comment <servlet> and <servlet-mapping> in web.xml
 //        2.使用@WebServlet用于RegisterServlet(第3周)
@@ -44,30 +50,20 @@ public class RegisterServlet extends HttpServlet {
         String Password = request.getParameter("password");
         String Email = request.getParameter("email");
         String Gender = request.getParameter("gender");
-        String BirthDate = request.getParameter("birthDate");
-
+        Date BirthDate = Date.valueOf(request.getParameter("birthDate"));
+        UserDao userDao=new UserDao();
+        User user =new User(0,Username,Password,Email,Gender,BirthDate);
         try {
-            String insertDb = "insert into userdb.dbo.usertable(username,password,email,gender,birthDate) " +
-                    "values(?,?,?,?,?)";
-            pstmt = con.prepareStatement(insertDb);
-            pstmt.setString(1,Username);
-            pstmt.setString(2,Password);
-            pstmt.setString(3,Email);
-            pstmt.setString(4,Gender);
-            pstmt.setString(5,BirthDate);
-            pstmt.executeUpdate();
-
-
-            //使用请求属性
-            //设置rs为请求属性
-//            request.setAttribute("rsName",rs);//name -字符串，value -任何类型(对象)
-//            request.getRequestDispatcher("userList.jsp").forward(request,response);//此时，请求已经给了userList
-//            System.out.println("我在RegisterServlet——>doPost()——>再forward()");
-            response.sendRedirect("login.jsp");//跳转登录界面.
-        } catch (Exception e) {
-            System.out.println(e);
+            int flag = userDao.saveUser(con,user);
+            if (flag!=0) {
+                response.sendRedirect("login.jsp");
+            } else {
+                request.setAttribute("message", "Username or Password Error!!!");
+                request.getRequestDispatcher("WEB-INF/views/register.jsp").forward(request, response);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
-
     }
 
     @Override

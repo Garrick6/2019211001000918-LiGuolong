@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="header.jsp"%>
-<form style="text-align: center" method="post" action="log">
+<form style="text-align: center" method="post" action="login">
     <h2>Login</h2>
     <%
         if ((request.getAttribute("message")!=null)){
