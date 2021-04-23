@@ -16,6 +16,5 @@ This is my register JSP page <br>
     Male <label><input type="radio" name="gender" value="female"></label>Female<br/>
     Date of Birth:<label><input type="text" name="birthDate"></label><br/>
     <input type="submit" value="Register"/>
-
 </form>
 <%@include file="footer.jsp"%>

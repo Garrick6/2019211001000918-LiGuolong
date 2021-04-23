@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.LiGuolong.model.User" %><%--
   Created by IntelliJ IDEA.
   User: 26707
   Date: 2021/4/8
@@ -8,17 +8,22 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="header.jsp"%>
 <h2>User Info</h2>
+<%
+    User user= (User) session.getAttribute("user");
+%>
 <table>
     <tr>
-        <td>Username</td><td><%=request.getAttribute("username")%></td>
+        <td>Username</td><td><%=user.getUsername()%></td>
     </tr><tr>
-        <td>Password</td><td><%=request.getAttribute("password")%></td>
-    </tr><tr>
-        <td>Email</td><td><%=request.getAttribute("email")%></td>
-    </tr><tr>
-        <td>Gender</td><td><%=request.getAttribute("gender")%></td>
-    </tr><tr>
-        <td>Birthdate</td><td><%=request.getAttribute("birthdate")%></td>
-    </tr>
+    <td>Password</td><td><%=user.getPassword()%></td>
+</tr><tr>
+    <td>Email</td><td><%=user.getEmail()%></td>
+</tr><tr>
+    <td>Gender</td><td><%=user.getGender()%></td>
+</tr><tr>
+    <td>Birthdate</td><td><%=user.getBirthDate()%></td>
+</tr><tr>
+    <td><a href='updateUser'>Update User</a></td>
+</tr>
 </table>
 <%@include file="footer.jsp"%>

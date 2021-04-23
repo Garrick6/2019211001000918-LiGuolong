@@ -7,8 +7,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="header.jsp"%>
-<form style="text-align: center" method="post" action="login">
-    <h2>Login</h2>
     <%
         if ((request.getAttribute("message")!=null)){
     %>
@@ -19,10 +17,29 @@
     </script>
     <%
         }
-    %>
-    username:<label><input type="text" name="username"/></label><br/>
-    password:<label><input type="password" name="password"/></label><br/>
-    <input type="submit" value="Login"/>
+        Cookie[] allCookies=request.getCookies();
+        String username="",password="",rememberMeVal="";
+        if (allCookies!=null){
+            for (Cookie c:allCookies){
+                if (c.getName().equals("cUsername")){
+                    username=c.getValue();
+                }
+                if (c.getName().equals("cPassword")){
+                    password=c.getValue();
+                }
+                if (c.getName().equals("cRememberMe")){
+                    rememberMeVal=c.getValue();
+                }
+            }
 
+        }
+    %>
+    <form style="text-align: center" method="post" action="login">
+        <h2>Login</h2>
+    username:<label><input type="text" name="username" value="<%=username%>"/></label><br/>
+    password:<label><input type="password" name="password" value="<%=password%>"/></label><br/>
+    <input type="checkbox" name="rememberMe" value="1" <%if(rememberMeVal.equals("1")){
+        out.println("checked: ");}%>checked/>RememberMe<br/>
+    <input type="submit" value="Login"/>
 </form>
 <%@ include file="footer.jsp"%>

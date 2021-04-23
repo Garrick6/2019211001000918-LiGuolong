@@ -43,6 +43,7 @@ public class UserDao implements IUserDao{
         st.setDate(5, (java.sql.Date) user.getBirthDate());
         st.setInt(6,user.getId());
         return st.executeUpdate();
+
     }
 
     @Override

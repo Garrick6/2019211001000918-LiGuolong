@@ -31,7 +31,6 @@ import java.sql.SQLException;
 public class RegisterServlet extends HttpServlet {
 
     Connection con=null;
-    PreparedStatement pstmt = null;
 
     public void init() throws ServletException{
         con = (Connection) getServletContext().getAttribute("con");
