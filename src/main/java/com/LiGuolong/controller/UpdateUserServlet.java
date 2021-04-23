@@ -44,7 +44,7 @@ public class UpdateUserServlet extends HttpServlet {
         try {
             int flag = userDao.updateUser(con,user);
             if (flag!=0) {
-                response.sendRedirect("WEB-INF/views/userInfo.jsp");
+                request.getRequestDispatcher("/login").forward(request, response);
             } else {
                 request.setAttribute("message", "Username or Password Error!!!");
                 request.getRequestDispatcher("WEB-INF/views/updateUser.jsp").forward(request, response);
