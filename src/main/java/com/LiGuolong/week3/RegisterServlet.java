@@ -37,8 +37,7 @@ public class RegisterServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request, response);
-
+        request.getRequestDispatcher("WEB-INF/views/register.jsp").forward(request,response);
     }
 
     @Override
@@ -54,7 +53,7 @@ public class RegisterServlet extends HttpServlet {
         try {
             int flag = userDao.saveUser(con,user);
             if (flag!=0) {
-                response.sendRedirect("login.jsp");
+                response.sendRedirect("login");
             } else {
                 request.setAttribute("message", "Username or Password Error!!!");
                 request.getRequestDispatcher("WEB-INF/views/register.jsp").forward(request, response);

@@ -103,5 +103,32 @@
         <welcome-file>home</welcome-file>
     </welcome-file-list>
 
+    <filter>
+        <filter-name>AuthFiler</filter-name>
+        <filter-class>com.LiGuolong.filter.AuthFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthFiler</filter-name>
+        <url-pattern>/hello</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>HelloFilter</filter-name>
+        <filter-class>com.LiGuolong.filter.HelloFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>HelloFilter</filter-name>
+        <url-pattern>/hello</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>LoggerFilter</filter-name>
+        <filter-class>com.LiGuolong.filter.LoggerFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoggerFilter</filter-name>
+        <url-pattern>/hello</url-pattern>
+    </filter-mapping>
+
 
 </web-app>

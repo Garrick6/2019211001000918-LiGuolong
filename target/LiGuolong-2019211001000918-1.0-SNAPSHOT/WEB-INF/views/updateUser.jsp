@@ -5,14 +5,14 @@
   Time: 17:08
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@include file="header.jsp" %>
 <%
   User user=(User) session.getAttribute("user");
   if ((request.getAttribute("message")!=null)){
 %>
 <script type="text/javascript" language="javascript">
-  alert("<%=request.getAttribute("message")%>");                                            // 弹出错误信息
+  alert("${requestScope.message}");                                            // 弹出错误信息
 
   // window.location='login.jsp' ;                            // 跳转到登录界面
 </script>
