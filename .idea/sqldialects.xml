@@ -2,11 +2,14 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/src/main/java/com/LiGuolong/dao/UserDao.java" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/LiGuolong/model/Category.java" dialect="TSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/LiGuolong/week3/RegisterServlet.java" dialect="TSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/LiGuolong/week4/JDBCDemoServlet.java" dialect="TSQL" />
     <file url="file://$PROJECT_DIR$/src/main/java/com/LiGuolong/week5/LoginServlet.java" dialect="TSQL" />
+    <file url="PROJECT" dialect="TSQL" />
   </component>
   <component name="SqlResolveMappings">
-    <file url="file://$PROJECT_DIR$/src/main/java/com/LiGuolong/dao/UserDao.java" scope="{&quot;node&quot;:{  &quot;@negative&quot;:&quot;1&quot;,  &quot;group&quot;:{   &quot;@kind&quot;:&quot;root&quot;,   &quot;node&quot;:{    &quot;@negative&quot;:&quot;1&quot;   }  } }}" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/LiGuolong/dao/UserDao.java" scope="{&quot;node&quot;:{  &quot;@negative&quot;:&quot;1&quot;,  &quot;group&quot;:{   &quot;@kind&quot;:&quot;root&quot;,   &quot;node&quot;:{    &quot;name&quot;:{     &quot;@qname&quot;:&quot;72950510-c7be-4a62-8f45-8a23cfe289bd&quot;    },    &quot;group&quot;:{     &quot;@kind&quot;:&quot;database&quot;,     &quot;node&quot;:{      &quot;name&quot;:{       &quot;@qname&quot;:&quot;userdb&quot;      }     }    }   }  } }}" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/LiGuolong/model/Category.java" scope="{&quot;node&quot;:{  &quot;@negative&quot;:&quot;1&quot;,  &quot;group&quot;:{   &quot;@kind&quot;:&quot;root&quot;,   &quot;node&quot;:{    &quot;name&quot;:{     &quot;@qname&quot;:&quot;72950510-c7be-4a62-8f45-8a23cfe289bd&quot;    },    &quot;group&quot;:{     &quot;@kind&quot;:&quot;database&quot;,     &quot;node&quot;:{      &quot;name&quot;:{       &quot;@qname&quot;:&quot;userdb&quot;      }     }    }   }  } }}" />
   </component>
 </project>

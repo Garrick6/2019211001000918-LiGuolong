@@ -1,11 +1,13 @@
 package com.LiGuolong.dao;
 
+import com.LiGuolong.model.Category;
 import com.LiGuolong.model.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -127,16 +129,17 @@ public class UserDao implements IUserDao{
 
     private List<User> getUsers(PreparedStatement st) throws SQLException {
         ResultSet rs= st.executeQuery();
-        User user=null;
+        List<User> list= new ArrayList<>();
         if (rs.next()) {
-            user=new User();
+            User user=new User();
             user.setId(rs.getInt("id"));
             user.setUsername(rs.getString("username"));
             user.setPassword(rs.getString("password"));
             user.setEmail(rs.getString("email"));
             user.setGender(rs.getString("gender"));
             user.setBirthDate(rs.getDate("birthdate"));
+            list.add(user);
         }
-        return Collections.singletonList(user);
+        return list;
     }
 }
