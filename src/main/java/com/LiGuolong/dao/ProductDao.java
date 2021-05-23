@@ -4,10 +4,7 @@ import com.LiGuolong.model.Category;
 import com.LiGuolong.model.Product;
 import com.LiGuolong.model.User;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -126,5 +123,20 @@ public class ProductDao implements  IProductDao{
             list.add(product);
         }
         return list;
+    }
+
+    public byte[] getPictureById(Integer productId, Connection con) throws SQLException{
+        byte[] imgBytes=null;
+        String sql ="select picture from userdb.dbo.product where productId=?";
+        PreparedStatement pt=con.prepareStatement(sql);
+        pt.setInt(1,productId);
+        ResultSet rs =pt.executeQuery();
+        while (rs.next()){
+            Blob blob=rs.getBlob("picture");
+            imgBytes=blob.getBytes(1,(int) blob.length());
+
+        }
+        return imgBytes;
+
     }
 }
