@@ -23,7 +23,18 @@ if(request.getParameter("username").equals("admin") && request.getParameter("pas
 }
 --%>
 <%--todo 2: use c:choose ,c:when c:otherwise to validate username is 'admin' and  password is 'admin'--%>
-c:choose
+<c:set var="username" scope="session" value="${}"/>
+<c:choose>
+    <c:when test="${username == admin}">
+        太惨了。
+    </c:when>
+    <c:when test="${salary > 1000}">
+        不错的薪水，还能生活。
+    </c:when>
+    <c:otherwise>
+        什么都没有。
+    </c:otherwise>
+</c:choose>
     c:when
         <%--todo 3: when username == admin use c:url and c:param to make url = "welcome.jsp?username=admin"--%>
          c:url

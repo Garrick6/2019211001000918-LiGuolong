@@ -26,12 +26,8 @@ public class ProductDetailsServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            List<Category> categoryList = Category.findAllCategory(con);
-            request.setAttribute("categoryList", categoryList);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+        List<Category> categoryList = Category.findAllCategory(con);
+        request.setAttribute("categoryList", categoryList);
         try {
             //get product by id
             if (request.getParameter("id") != null) {

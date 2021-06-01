@@ -16,11 +16,9 @@
 <%--<%=//request.getAttribute("message")%>--%>
 
 <%--todo 1: use c:url to set url in action="validate.jsp" --%>
-<form action="validate.jsp">
+<form action="<c:url value="validate.jsp"/>">
     Username : <input type="text" name="username"><br>
     Password : <input type="password" name="password"><br>
-    <c:set var="username" value="username" />
-    <c:set var="password" value="password" />
     <input type="submit" value="Login"/>
 </form>
 </body>

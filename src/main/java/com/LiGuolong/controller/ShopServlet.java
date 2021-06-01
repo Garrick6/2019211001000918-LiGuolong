@@ -28,12 +28,8 @@ public class ShopServlet extends HttpServlet {
 
         //set all category into request
         Category category = new Category();
-        try {
-            List<Category> categoryList = Category.findAllCategory(con);
-            request.setAttribute("categoryList", categoryList);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+        List<Category> categoryList = Category.findAllCategory(con);
+        request.setAttribute("categoryList", categoryList);
         //set all product into request
         try {
             ProductDao productDao = new ProductDao();

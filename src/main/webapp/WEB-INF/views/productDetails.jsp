@@ -10,16 +10,12 @@
 
 						<!-- loop_start -->
 						<c:forEach var="c" items="${categoryList}">
-
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a
-											href="<%=basePath%>shop?categoryId=${c.categoryId}">${c.categoryName}</a>
-									</h4>
+									<h4 class="panel-title"><a href="<%=basePath %>shop?categoryId=${c.categoryId}">${c.categoryName}</a></h4>
 								</div>
 							</div>
 						</c:forEach>
-
 						<!-- loop_end -->
 					</div><!--/category-products-->
 
@@ -27,14 +23,13 @@
 					<div class="price-range"><!--price-range-->
 						<h2>Price Range</h2>
 						<div class="well">
-							<input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600"
-								   data-slider-step="5" data-slider-value="[250,450]" id="sl2"><br/>
+							<input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
 							<b>$ 0</b> <b class="pull-right">$ 600</b>
 						</div>
 					</div><!--/price-range-->
 
 					<div class="shipping text-center"><!--shipping-->
-						<img src="images/home/shipping.jpg" alt=""/>
+						<img src="images/home/shipping.jpg" alt="" />
 					</div><!--/shipping-->
 
 				</div>
@@ -44,7 +39,7 @@
 				<div class="product-details"><!--product-details-->
 					<div class="col-sm-5">
 						<div class="view-product">
-							<img src="<%=basePath%>getImg?id=${p.productId}" alt=""/>
+							<img src="<%=basePath %>getImg?id=${p.productId}" alt="" />
 						</div>
 						<div id="similar-product" class="carousel slide" data-ride="carousel">
 
@@ -82,12 +77,12 @@
 					</div>
 					<div class="col-sm-7">
 						<div class="product-information"><!--/product-information-->
-							<img src="images/product-details/new.jpg" class="newarrival" alt=""/>
+							<img src="images/product-details/new.jpg" class="newarrival" alt="" />
 							<h2>${p.productName}</h2>
 							<p>Web ID: ${p.productId}</p>
-							<img src="images/product-details/rating.png" alt=""/><!-- picture -->
+							<img src="images/product-details/rating.png" alt="" /><!-- picture -->
 							<p></p>
-							<p>RMB ${p.price}</p>
+							<p>${p.price}</p>
 							<form action="<%=basePath %>cart">
 								<!-- <label>Quantity:</label>
                                 <input type="text"  name="quantity"/> -->
@@ -97,13 +92,12 @@
 									<button type="submit" class="btn btn-fefault cart">
 										<i class="fa fa-shopping-cart"></i>
 										Add to cart
-									</button>
-								</div>
+									</button></div>
 							</form>
 							<!-- <p><b>Availability:</b> In Stock</p>
                             <p><b>Condition:</b> New</p>
                             <p><b>Brand:</b> E-SHOPPER</p> -->
-							<a href=""><img src="images/product-details/share.png" class="share img-responsive" alt=""/></a>
+							<a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>
 						</div><!--/product-information-->
 					</div>
 				</div><!--/product-details-->
@@ -114,7 +108,7 @@
 							<li><a class="active" href="#details" data-toggle="tab">Details</a></li>
 						</ul>
 					</div>
-					<div class="tab-pane fade active in" id="details">
+					<div class="tab-pane fade active in" id="details" >
 						<div class="col-sm-12">
 
 							<p>${p.productDescription}</p>
@@ -130,3 +124,4 @@
 </section>
 <br/><br/>
 <%@include file="footer.jsp" %>
+	

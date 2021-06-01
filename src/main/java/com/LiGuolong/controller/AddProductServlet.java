@@ -23,14 +23,10 @@ public class AddProductServlet extends HttpServlet {
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            List<Category> categoryList = Category.findAllCategory(con);
-            request.setAttribute("categoryList",categoryList);
-            String path="../WEB-INF/views/admin/addProduct.jsp";
-            request.getRequestDispatcher(path).forward(request,response);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+        List<Category> categoryList = Category.findAllCategory(con);
+        request.setAttribute("categoryList",categoryList);
+        String path="../WEB-INF/views/admin/addProduct.jsp";
+        request.getRequestDispatcher(path).forward(request,response);
 
     }
 
