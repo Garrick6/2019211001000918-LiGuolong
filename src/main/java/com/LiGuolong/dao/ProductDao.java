@@ -1,8 +1,6 @@
 package com.LiGuolong.dao;
 
-import com.LiGuolong.model.Category;
 import com.LiGuolong.model.Product;
-import com.LiGuolong.model.User;
 
 import java.sql.*;
 import java.util.ArrayList;

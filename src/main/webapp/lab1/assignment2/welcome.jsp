@@ -14,7 +14,7 @@
 <body>
 <h2>Welcome,<%-- todo 8 use c:out to print username from parammeter --%>
     <c:out value="${param.username}"/>
-    <%--<%=//request.getParameter("username")%>--%>
+    <%--<%=//request.getParameter("username")1%>--%>
 </h2>
 </body>
 </html>

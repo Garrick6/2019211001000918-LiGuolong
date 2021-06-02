@@ -1,7 +1,6 @@
 package com.LiGuolong.filter;
 
 import javax.servlet.*;
-import javax.servlet.annotation.*;
 import java.io.IOException;
 
 public class LoggerFilter implements Filter {

@@ -2,7 +2,6 @@ package com.LiGuolong.dao;
 
 import com.LiGuolong.model.Product;
 
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
