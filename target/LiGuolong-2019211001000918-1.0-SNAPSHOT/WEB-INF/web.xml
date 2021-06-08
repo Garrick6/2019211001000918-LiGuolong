@@ -25,61 +25,61 @@
 
 
 
-    <servlet>
-        <servlet-name>anyName</servlet-name><!--给服务器取名-->
-        <servlet-class>com.LiGuolong.week2.HelloWorldServlet</servlet-class><!--打包服务器-->
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>anyName</servlet-name>
-        <url-pattern>/hello</url-pattern><!-- 设置网址-->
-    </servlet-mapping>
+<!--    <servlet>-->
+<!--        <servlet-name>anyName</servlet-name>&lt;!&ndash;给服务器取名&ndash;&gt;-->
+<!--        <servlet-class>com.LiGuolong.week2.HelloWorldServlet</servlet-class>&lt;!&ndash;打包服务器&ndash;&gt;-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>anyName</servlet-name>-->
+<!--        <url-pattern>/hello</url-pattern>&lt;!&ndash; 设置网址&ndash;&gt;-->
+<!--    </servlet-mapping>-->
 
 
-    <servlet>
-        <servlet-name>LifeCycleServlet</servlet-name>
-        <servlet-class>com.LiGuolong.week3.LifeCycleServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>LifeCycleServlet</servlet-name>
-        <url-pattern>/life</url-pattern>
-    </servlet-mapping>
+<!--    <servlet>-->
+<!--        <servlet-name>LifeCycleServlet</servlet-name>-->
+<!--        <servlet-class>com.LiGuolong.week3.LifeCycleServlet</servlet-class>-->
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>LifeCycleServlet</servlet-name>-->
+<!--        <url-pattern>/life</url-pattern>-->
+<!--    </servlet-mapping>-->
 
 
 
 
 
-    <servlet>
-        <servlet-name>JDBCDemoServlet</servlet-name>
-        <servlet-class>com.LiGuolong.week4.JDBCDemoServlet</servlet-class>
-<!--        String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";-->
-<!--        String url="jdbc:sqlserver://localhost;databaseName=userdb";-->
-<!--        String username="sa";-->
-<!--        String password="605880327";-->
-<!--        在web.xml中设置为配置参数—仅用于一个servlet——JDBCDemoServlet:-->
-<!--        <init-param>-->
-<!--            <param-name>driver</param-name>-->
-<!--            <param-value>JDBCDemoServlet</param-value>-->
-<!--        </init-param>-->
-<!--        <init-param>-->
-<!--            <param-name>url</param-name>-->
-<!--            <param-value>jdbc:sqlserver://localhost;databaseName=userdb</param-value>-->
-<!--        </init-param>-->
-<!--        <init-param>-->
-<!--            <param-name>username</param-name>-->
-<!--            <param-value>sa</param-value>-->
-<!--        </init-param>-->
-<!--        <init-param>-->
-<!--            <param-name>password</param-name>-->
-<!--            <param-value>605880327</param-value>-->
-<!--        </init-param>-->
-        <load-on-startup>1</load-on-startup>
-        <!--在tomcat启动时进行类加载-->
+<!--    <servlet>-->
+<!--        <servlet-name>JDBCDemoServlet</servlet-name>-->
+<!--        <servlet-class>com.LiGuolong.week4.JDBCDemoServlet</servlet-class>-->
+<!--&lt;!&ndash;        String driver="com.microsoft.sqlserver.jdbc.SQLServerDriver";&ndash;&gt;-->
+<!--&lt;!&ndash;        String url="jdbc:sqlserver://localhost;databaseName=userdb";&ndash;&gt;-->
+<!--&lt;!&ndash;        String username="sa";&ndash;&gt;-->
+<!--&lt;!&ndash;        String password="605880327";&ndash;&gt;-->
+<!--&lt;!&ndash;        在web.xml中设置为配置参数—仅用于一个servlet——JDBCDemoServlet:&ndash;&gt;-->
+<!--&lt;!&ndash;        <init-param>&ndash;&gt;-->
+<!--&lt;!&ndash;            <param-name>driver</param-name>&ndash;&gt;-->
+<!--&lt;!&ndash;            <param-value>JDBCDemoServlet</param-value>&ndash;&gt;-->
+<!--&lt;!&ndash;        </init-param>&ndash;&gt;-->
+<!--&lt;!&ndash;        <init-param>&ndash;&gt;-->
+<!--&lt;!&ndash;            <param-name>url</param-name>&ndash;&gt;-->
+<!--&lt;!&ndash;            <param-value>jdbc:sqlserver://localhost;databaseName=userdb</param-value>&ndash;&gt;-->
+<!--&lt;!&ndash;        </init-param>&ndash;&gt;-->
+<!--&lt;!&ndash;        <init-param>&ndash;&gt;-->
+<!--&lt;!&ndash;            <param-name>username</param-name>&ndash;&gt;-->
+<!--&lt;!&ndash;            <param-value>sa</param-value>&ndash;&gt;-->
+<!--&lt;!&ndash;        </init-param>&ndash;&gt;-->
+<!--&lt;!&ndash;        <init-param>&ndash;&gt;-->
+<!--&lt;!&ndash;            <param-name>password</param-name>&ndash;&gt;-->
+<!--&lt;!&ndash;            <param-value>605880327</param-value>&ndash;&gt;-->
+<!--&lt;!&ndash;        </init-param>&ndash;&gt;-->
+<!--        <load-on-startup>1</load-on-startup>-->
+<!--        &lt;!&ndash;在tomcat启动时进行类加载&ndash;&gt;-->
 
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>JDBCDemoServlet</servlet-name>
-        <url-pattern>/jdbc</url-pattern>
-    </servlet-mapping>
+<!--    </servlet>-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>JDBCDemoServlet</servlet-name>-->
+<!--        <url-pattern>/jdbc</url-pattern>-->
+<!--    </servlet-mapping>-->
 
 <!--    <servlet>-->
 <!--        <servlet-name>ConfigDemoServlet</servlet-name>-->
@@ -102,33 +102,48 @@
     <welcome-file-list>
         <welcome-file>home</welcome-file>
     </welcome-file-list>
-
     <filter>
-        <filter-name>AuthFiler</filter-name>
-        <filter-class>com.LiGuolong.filter.AuthFilter</filter-class>
+        <filter-name>YourNameFilter</filter-name>
+        <filter-class>com.lab2.YourNameFilter</filter-class>
     </filter>
     <filter-mapping>
-        <filter-name>AuthFiler</filter-name>
-        <url-pattern>/hello</url-pattern>
+        <filter-name>YourNameFilter</filter-name>
+        <url-pattern>/lab2/welcome.jsp</url-pattern>
     </filter-mapping>
-
     <filter>
-        <filter-name>HelloFilter</filter-name>
-        <filter-class>com.LiGuolong.filter.HelloFilter</filter-class>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>com.lab2.LoginFilter</filter-class>
     </filter>
     <filter-mapping>
-        <filter-name>HelloFilter</filter-name>
-        <url-pattern>/hello</url-pattern>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/lab2/welcome.jsp</url-pattern>
     </filter-mapping>
+<!--    <filter>-->
+<!--        <filter-name>AuthFiler</filter-name>-->
+<!--        <filter-class>com.LiGuolong.filter.AuthFilter</filter-class>-->
+<!--    </filter>-->
+<!--    <filter-mapping>-->
+<!--        <filter-name>AuthFiler</filter-name>-->
+<!--        <url-pattern>/hello</url-pattern>-->
+<!--    </filter-mapping>-->
 
-    <filter>
-        <filter-name>LoggerFilter</filter-name>
-        <filter-class>com.LiGuolong.filter.LoggerFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>LoggerFilter</filter-name>
-        <url-pattern>/hello</url-pattern>
-    </filter-mapping>
+<!--    <filter>-->
+<!--        <filter-name>HelloFilter</filter-name>-->
+<!--        <filter-class>com.LiGuolong.filter.HelloFilter</filter-class>-->
+<!--    </filter>-->
+<!--    <filter-mapping>-->
+<!--        <filter-name>HelloFilter</filter-name>-->
+<!--        <url-pattern>/hello</url-pattern>-->
+<!--    </filter-mapping>-->
+
+<!--    <filter>-->
+<!--        <filter-name>LoggerFilter</filter-name>-->
+<!--        <filter-class>com.LiGuolong.filter.LoggerFilter</filter-class>-->
+<!--    </filter>-->
+<!--    <filter-mapping>-->
+<!--        <filter-name>LoggerFilter</filter-name>-->
+<!--        <url-pattern>/hello</url-pattern>-->
+<!--    </filter-mapping>-->
 
 
 </web-app>
