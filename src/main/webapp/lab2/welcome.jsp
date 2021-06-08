@@ -12,9 +12,11 @@
     <title>Welcome</title>
 </head>
 <body>
-<h2>Welcome,<%-- todo 8 use c:out to print username from parammeter --%>
-    <c:out value="${param.username}"/>
-    <%--<%=//request.getParameter("username")1%>--%>
+<h2>Welcome,
+    <%--todo 9 : use jsp:useBean to access the same instance of login bean from request scope--%>
+    <jsp:useBean id="user" scope="request" class="com.lab2.Login"/>
+    <%--todo 10 : use jsp:getProperty to display username --%>
+    <jsp:getProperty name="user" property="username"/>
 </h2>
 </body>
 </html>

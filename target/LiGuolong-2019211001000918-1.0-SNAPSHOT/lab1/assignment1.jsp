@@ -15,7 +15,7 @@
 </head>
 <body>
 <%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
-<h1> c:forEach loog to print 1 to 10</h1>
+<h2> c:forEach loog to print 1 to 10</h2>
 
     <ul>
         <c:forEach var="i" begin="1" end="10">
@@ -25,7 +25,7 @@
 <%--。   使用<%@taglib%>指令包含JSTL核心库。
         使用<c:forEach>标记向下循环固定的次数
         使用<C:ForEach>标签从集合中获取项目
-        使用<C:forTokens>从分隔字符串中获取单词。--%>
+        使用<C:forTokens>从分隔字符串中获取单词1。--%>
     <%-- todo 1 : run assignement1.jsp  --%>
         <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
     <%-- todo 2 : use c:forEach to print list 1,3,5,7,9   --%>

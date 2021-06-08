@@ -12,12 +12,7 @@
     <title>Login</title>
 </head>
 <body>
-<%-- todo 9: use c:out to print message fron request --%>
-<%--<%=request.getAttribute("message")%>--%1>
-<c:out value="${sessionScope.message}"/>
-<%--todo 1: use c:url to set url in action="validate.jsp" --%>
-
-<form action="<c:url value="/lab1/assignment2/validate.jsp" />">
+<form action="validate.jsp">
     Username : <input type="text" name="username"><br>
     Password : <input type="password" name="password"><br>
     <input type="submit" value="Login"/>

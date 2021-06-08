@@ -102,33 +102,48 @@
     <welcome-file-list>
         <welcome-file>home</welcome-file>
     </welcome-file-list>
-
     <filter>
-        <filter-name>AuthFiler</filter-name>
-        <filter-class>com.LiGuolong.filter.AuthFilter</filter-class>
+        <filter-name>YourNameFilter</filter-name>
+        <filter-class>com.lab2.YourNameFilter</filter-class>
     </filter>
     <filter-mapping>
-        <filter-name>AuthFiler</filter-name>
-        <url-pattern>/hello</url-pattern>
+        <filter-name>YourNameFilter</filter-name>
+        <url-pattern>/lab2/welcome.jsp</url-pattern>
     </filter-mapping>
-
     <filter>
-        <filter-name>HelloFilter</filter-name>
-        <filter-class>com.LiGuolong.filter.HelloFilter</filter-class>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>com.lab2.LoginFilter</filter-class>
     </filter>
     <filter-mapping>
-        <filter-name>HelloFilter</filter-name>
-        <url-pattern>/hello</url-pattern>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/lab2/welcome.jsp</url-pattern>
     </filter-mapping>
+<!--    <filter>-->
+<!--        <filter-name>AuthFiler</filter-name>-->
+<!--        <filter-class>com.LiGuolong.filter.AuthFilter</filter-class>-->
+<!--    </filter>-->
+<!--    <filter-mapping>-->
+<!--        <filter-name>AuthFiler</filter-name>-->
+<!--        <url-pattern>/hello</url-pattern>-->
+<!--    </filter-mapping>-->
 
-    <filter>
-        <filter-name>LoggerFilter</filter-name>
-        <filter-class>com.LiGuolong.filter.LoggerFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>LoggerFilter</filter-name>
-        <url-pattern>/hello</url-pattern>
-    </filter-mapping>
+<!--    <filter>-->
+<!--        <filter-name>HelloFilter</filter-name>-->
+<!--        <filter-class>com.LiGuolong.filter.HelloFilter</filter-class>-->
+<!--    </filter>-->
+<!--    <filter-mapping>-->
+<!--        <filter-name>HelloFilter</filter-name>-->
+<!--        <url-pattern>/hello</url-pattern>-->
+<!--    </filter-mapping>-->
+
+<!--    <filter>-->
+<!--        <filter-name>LoggerFilter</filter-name>-->
+<!--        <filter-class>com.LiGuolong.filter.LoggerFilter</filter-class>-->
+<!--    </filter>-->
+<!--    <filter-mapping>-->
+<!--        <filter-name>LoggerFilter</filter-name>-->
+<!--        <url-pattern>/hello</url-pattern>-->
+<!--    </filter-mapping>-->
 
 
 </web-app>
