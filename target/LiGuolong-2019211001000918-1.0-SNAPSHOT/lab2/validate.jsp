@@ -21,6 +21,7 @@
                      value="${param.password}"/>
 </jsp:useBean>
 
+
 <%
     //todo 3: use if check username is admin and ppassword is admin
     if(user.getUsername().equals("admin") && user.getPassword().equals("admin")){
