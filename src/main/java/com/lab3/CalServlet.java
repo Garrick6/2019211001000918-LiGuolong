@@ -45,8 +45,8 @@ public class CalServlet extends HttpServlet {
 
             String firstValue=request.getParameter("firstValue");
             String secondValue=request.getParameter("secondValue");
-            int n1=Integer.valueOf(firstValue);
-            int n2=Integer.valueOf(secondValue);
+            int n1=Integer.parseInt(firstValue);
+            int n2=Integer.parseInt(secondValue);
 
             int cResult=0;
             if(request.getParameter("add") != null){
@@ -70,6 +70,6 @@ public class CalServlet extends HttpServlet {
             response.addCookie(c5);
             c3.setMaxAge(5);c4.setMaxAge(5);c5.setMaxAge(5);
         }
-        response.sendRedirect("/2019211001000801HeYuxin_war_exploded/lab3/cal.jsp");
+        response.sendRedirect("/2019211001000918_war_exploded/lab3/cal.jsp");
     }
 }
